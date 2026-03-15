@@ -19,7 +19,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log($"Yukle öncesi para: {paraMiktari}");
         SaveManager.Instance.Yukle(this);
+        Debug.Log($"Yukle sonrası para: {paraMiktari}");
 
         double offlineKazanc = SaveManager.Instance.OfflineKazancHesapla(this);
         if (offlineKazanc > 0)

@@ -41,10 +41,20 @@ public class SaveManager : MonoBehaviour
     public void Yukle(GameManager gm)
     {
         if (PlayerPrefs.HasKey(KEY_PARA))
-            double.TryParse(PlayerPrefs.GetString(KEY_PARA), out gm.paraMiktari);
+        {
+            double kaydedilenPara;
+            if (double.TryParse(PlayerPrefs.GetString(KEY_PARA), out kaydedilenPara))
+                gm.paraMiktari = kaydedilenPara;
+            // parse başarısız olursa dokunma, GameManager'daki 10 kalsın
+        }
+        // KEY_PARA yoksa hiç dokunma, 10 kalsın
 
         if (PlayerPrefs.HasKey(KEY_TOPLAM_KAZANC))
-            double.TryParse(PlayerPrefs.GetString(KEY_TOPLAM_KAZANC), out gm.toplamKazanc);
+        {
+            double kaydedilenKazanc;
+            if (double.TryParse(PlayerPrefs.GetString(KEY_TOPLAM_KAZANC), out kaydedilenKazanc))
+                gm.toplamKazanc = kaydedilenKazanc;
+        }
 
         Otomasyon[] otomasyonlar = FindObjectsByType<Otomasyon>(FindObjectsSortMode.None);
         foreach (Otomasyon oto in otomasyonlar)
