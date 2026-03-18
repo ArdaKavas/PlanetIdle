@@ -5,12 +5,12 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [Header("Para UI")]
-    public TextMeshProUGUI paraText;
+    [Header("Money UI")]
+    public TextMeshProUGUI moneyText;
 
-    [Header("Offline Kazanç Popup")]
+    [Header("Offline Earning Popup")]
     public GameObject offlinePanel;         // Inspector'da atanacak (başta kapalı olacak)
-    public TextMeshProUGUI offlineMesajText; // "X saatte Y para kazandın!"
+    public TextMeshProUGUI offlineMessageText; // "X saatte Y para kazandın!"
 
     void Awake()
     {
@@ -29,30 +29,30 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         if (GameManager.Instance != null)
-            paraText.text = "$" + FormatPara(GameManager.Instance.paraMiktari);
+            moneyText.text = "$" + MoneyFormat(GameManager.Instance.moneyAmount);
     }
 
     // SaveManager tarafından çağrılır
-    public void OfflineKazancGoster(double kazanc)
+    public void ShowOfflineEarning(double earning)
     {
-        if (offlinePanel == null || offlineMesajText == null) return;
+        if (offlinePanel == null || offlineMessageText == null) return;
 
-        offlineMesajText.text = "Yokken $" + FormatPara(kazanc) + " kazandın!";
+        offlineMessageText.text = "You earned $" + MoneyFormat(earning) + " while you weren't here!";
         offlinePanel.SetActive(true);
     }
 
     // Popup'taki "Tamam" butonuna bağlanacak
-    public void OfflinePopupKapat()
+    public void OfflineClosePopup()
     {
         if (offlinePanel) offlinePanel.SetActive(false);
     }
 
-    string FormatPara(double miktar)
+    string MoneyFormat(double amount)
     {
-        if (miktar >= 1000000000000) return (miktar / 1000000000000).ToString("F1") + "T";
-        if (miktar >= 1000000000) return (miktar / 1000000000).ToString("F1") + "B";
-        if (miktar >= 1000000) return (miktar / 1000000).ToString("F1") + "M";
-        if (miktar >= 1000) return (miktar / 1000).ToString("F1") + "K";
-        return miktar.ToString("F0");
+        if (amount >= 1000000000000) return (amount / 1000000000000).ToString("F1") + "T";
+        if (amount >= 1000000000) return (amount / 1000000000).ToString("F1") + "B";
+        if (amount >= 1000000) return (amount / 1000000).ToString("F1") + "M";
+        if (amount >= 1000) return (amount / 1000).ToString("F1") + "K";
+        return amount.ToString("F0");
     }
 }

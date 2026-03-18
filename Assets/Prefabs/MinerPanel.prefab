@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xDCRET\u0130M YAP"
+  m_text: PRODUCE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 1136011882303481462}
   - component: {fileID: 5339164012226886001}
   m_Layer: 5
-  m_Name: SatinAlButonu
+  m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,8 +259,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8289510487396196158}
-        m_TargetAssemblyTypeName: Otomasyon, Assembly-CSharp
-        m_MethodName: SatinAl
+        m_TargetAssemblyTypeName: Automation, Assembly-CSharp
+        m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SATIN AL
+  m_text: BUY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 7897333511289185971}
   - component: {fileID: 2590635466579035125}
   m_Layer: 5
-  m_Name: UretimButonu
+  m_Name: ProductionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,8 +529,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8289510487396196158}
-        m_TargetAssemblyTypeName: Otomasyon, Assembly-CSharp
-        m_MethodName: ManuelUret
+        m_TargetAssemblyTypeName: Automation, Assembly-CSharp
+        m_MethodName: ProduceManually
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 4008280605277542687}
   - component: {fileID: 3728194816347676141}
   m_Layer: 5
-  m_Name: OrtaSatir
+  m_Name: MiddleLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 1026592662434832293}
   - component: {fileID: 176900074006502361}
   m_Layer: 5
-  m_Name: AdetText
+  m_Name: NumberText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 6433703714893264070}
   - component: {fileID: 1811224379798061966}
   m_Layer: 5
-  m_Name: SayacText
+  m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 9063565161561505355}
   - component: {fileID: 5539474687007174277}
   m_Layer: 0
-  m_Name: AltSatir
+  m_Name: BottomLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 1219734480644023362}
   - component: {fileID: 8373190906190200483}
   m_Layer: 5
-  m_Name: FiyatText
+  m_Name: PriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fiyat: $13'
+  m_text: 'Price: $13'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1209,7 +1209,7 @@ GameObject:
   - component: {fileID: 5813727917802470666}
   - component: {fileID: 6279309930036946616}
   m_Layer: 5
-  m_Name: KazancText
+  m_Name: EarningText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1262,7 +1262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Kazan\xE7: $2/\xFCretim"
+  m_text: 'Earning: $2/production'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1346,7 +1346,7 @@ GameObject:
   - component: {fileID: 73888765878607056}
   - component: {fileID: 4718784823486963675}
   m_Layer: 5
-  m_Name: UstSatir
+  m_Name: TopLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1434,7 +1434,7 @@ GameObject:
   - component: {fileID: 4850097111898553194}
   - component: {fileID: 3464252688477664756}
   m_Layer: 5
-  m_Name: MadenciPanel
+  m_Name: MinerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1512,20 +1512,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e20a8eb7706bb458428b99e301aa85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Otomasyon
-  otomasyonAdi: Madenci
-  bazKazanc: 1
-  bazFiyat: 10
-  adet: 1
-  pasif: 0
-  bazUretimSuresi: 4
-  otomasyonIndex: 0
-  adetText: {fileID: 176900074006502361}
-  fiyatText: {fileID: 8373190906190200483}
-  kazancText: {fileID: 6279309930036946616}
-  sayacText: {fileID: 1811224379798061966}
+  automationName: Miner
+  baseEarning: 1
+  basePrice: 10
+  number: 0
+  passive: 0
+  baseProductionTime: 4
+  automationIndex: 0
+  numberText: {fileID: 176900074006502361}
+  priceText: {fileID: 8373190906190200483}
+  earningText: {fileID: 6279309930036946616}
+  timerText: {fileID: 1811224379798061966}
   progressBar: {fileID: 8963880822084129216}
-  satinaAlButonu: {fileID: 5339164012226886001}
-  uretimButonu: {fileID: 2590635466579035125}
+  buyButton: {fileID: 5339164012226886001}
+  produceButton: {fileID: 2590635466579035125}
 --- !u!114 &4850097111898553194
 MonoBehaviour:
   m_ObjectHideFlags: 0

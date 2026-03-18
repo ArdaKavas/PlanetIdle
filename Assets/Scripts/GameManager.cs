@@ -4,10 +4,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [Header("Para")]
-    public double paraMiktari = 10;   // Başlangıç: Madenci satın almaya yeter
-    public double paraPerSaniye = 0;  // Artık kullanılmıyor ama SaveManager için kalıyor
-    public double toplamKazanc = 0;
+    [Header("Money")]
+    public double moneyAmount = 10;   // Başlangıç: Madenci satın almaya yeter
+    public double moneyPerSecond = 0;  // Artık kullanılmıyor ama SaveManager için kalıyor
+    public double totalEarning = 0;
 
     void Awake()
     {
@@ -19,29 +19,29 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log($"Yukle öncesi para: {paraMiktari}");
-        SaveManager.Instance.Yukle(this);
-        Debug.Log($"Yukle sonrası para: {paraMiktari}");
+        Debug.Log($"Money before load: {moneyAmount}");
+        SaveManager.Instance.Load(this);
+        Debug.Log($"Money after load: {moneyAmount}");
 
-        double offlineKazanc = SaveManager.Instance.OfflineKazancHesapla(this);
-        if (offlineKazanc > 0)
-            UIManager.Instance.OfflineKazancGoster(offlineKazanc);
+        double offlineEarning = SaveManager.Instance.CalculateOfflineEarning(this);
+        if (offlineEarning > 0)
+            UIManager.Instance.ShowOfflineEarning(offlineEarning);
     }
 
-    public void ManuelKazanc(double miktar)
+    public void ManualEarning(double amount)
     {
-        paraMiktari += miktar;
-        toplamKazanc += miktar;
+        moneyAmount += amount;
+        totalEarning += amount;
     }
 
     void OnApplicationPause(bool pause)
     {
         if (pause)
-            SaveManager.Instance.Kaydet(this);
+            SaveManager.Instance.Save(this);
     }
 
     void OnApplicationQuit()
     {
-        SaveManager.Instance.Kaydet(this);
+        SaveManager.Instance.Save(this);
     }
 }

@@ -280,8 +280,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1761045522}
   m_HandleRect: {fileID: 1761045521}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.5895169
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -865,7 +865,15 @@ PrefabInstance:
       value: 1400000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: basePrice
+      value: 1400000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: bazKazanc
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseEarning
       value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
@@ -877,12 +885,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 323819690}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationName
+      value: Spaceport
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: otomasyonIndex
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseProductionTime
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8930952210794171348, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: m_Name
-      value: UzayLimaniPanel
+      value: SpaceportPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1061,9 +1081,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9efa40adcd2804f94b5f480b018218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  paraMiktari: 10
-  paraPerSaniye: 0
-  toplamKazanc: 0
+  moneyAmount: 10
+  moneyPerSecond: 0
+  totalEarning: 0
 --- !u!4 &535887587
 Transform:
   m_ObjectHideFlags: 0
@@ -1555,7 +1575,15 @@ PrefabInstance:
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: basePrice
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: bazKazanc
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseEarning
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
@@ -1567,12 +1595,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 654328530}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationName
+      value: Mineral Processing Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: otomasyonIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseProductionTime
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 8930952210794171348, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: m_Name
-      value: MadenIslemPanel
+      value: MiningProcessPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1980,7 +2020,15 @@ PrefabInstance:
       value: 20000000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: basePrice
+      value: 20000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: bazKazanc
+      value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseEarning
       value: 25000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
@@ -1992,8 +2040,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1818324967}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationName
+      value: Terraforming Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: otomasyonIndex
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationIndex
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseProductionTime
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 8930952210794171348, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: m_Name
@@ -2378,7 +2438,15 @@ PrefabInstance:
       value: 300000000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: basePrice
+      value: 300000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: bazKazanc
+      value: 120000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseEarning
       value: 120000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
@@ -2390,8 +2458,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 729447340}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationName
+      value: Orbital Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: otomasyonIndex
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationIndex
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseProductionTime
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8930952210794171348, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: m_Name
@@ -2649,7 +2729,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 268369962}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9423408
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3061,7 +3141,15 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: basePrice
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: bazKazanc
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseEarning
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
@@ -3073,12 +3161,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1358377526}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationName
+      value: Drilling Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: otomasyonIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseProductionTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8930952210794171348, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: m_Name
-      value: SondajPanel
+      value: DrillingPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3122,9 +3222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e83529177a434d469c68796706008f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  paraText: {fileID: 1288399556}
+  moneyText: {fileID: 0}
   offlinePanel: {fileID: 0}
-  offlineMesajText: {fileID: 0}
+  offlineMessageText: {fileID: 0}
 --- !u!114 &1511071098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3899,7 +3999,15 @@ PrefabInstance:
       value: 12000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: basePrice
+      value: 12000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: bazKazanc
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseEarning
       value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
@@ -3911,12 +4019,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1350040264}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationName
+      value: Power Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: otomasyonIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseProductionTime
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8930952210794171348, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: m_Name
-      value: EnerjiPanel
+      value: PowerPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4344,7 +4464,15 @@ PrefabInstance:
       value: 130000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: basePrice
+      value: 130000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: bazKazanc
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseEarning
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
@@ -4356,12 +4484,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1663320432}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationName
+      value: Research Lab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: otomasyonIndex
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseProductionTime
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 8930952210794171348, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: m_Name
-      value: ArastirmaPanel
+      value: ResearchPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4742,7 +4882,15 @@ PrefabInstance:
       value: 5000000000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: basePrice
+      value: 5000000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: bazKazanc
+      value: 600000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseEarning
       value: 600000
       objectReference: {fileID: 0}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
@@ -4754,12 +4902,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 550870039}
     - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationName
+      value: Megacolony
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: otomasyonIndex
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: automationIndex
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289510487396196158, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
+      propertyPath: baseProductionTime
+      value: 44
+      objectReference: {fileID: 0}
     - target: {fileID: 8930952210794171348, guid: d2257125fe850b04f9acbe1d0626afb0, type: 3}
       propertyPath: m_Name
-      value: MegakoloniPanel
+      value: MegacolonyPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

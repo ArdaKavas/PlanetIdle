@@ -5,11 +5,11 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance;
 
-    private const string KEY_PARA = "para";
-    private const string KEY_TOPLAM_KAZANC = "toplamKazanc";
-    private const string KEY_CIKIS_ZAMANI = "cikisZamani";
-    private const string KEY_ADET_PREFIX = "oto_adet_";
-    private const string KEY_PASIF_PREFIX = "oto_pasif_";
+    private const string KEY_MONEY = "money";
+    private const string KEY_TOTAL_EARNING = "totalEarning";
+    private const string KEY_EXIT_TIME = "exitTime";
+    private const string KEY_NUMBER_PREFIX = "auto_number_";
+    private const string KEY_PASSIVE_PREFIX = "auto_passive_";
 
     void Awake()
     {
@@ -19,89 +19,89 @@ public class SaveManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void Kaydet(GameManager gm)
+    public void Save(GameManager gm)
     {
-        PlayerPrefs.SetString(KEY_PARA, gm.paraMiktari.ToString("R"));
-        PlayerPrefs.SetString(KEY_TOPLAM_KAZANC, gm.toplamKazanc.ToString("R"));
+        PlayerPrefs.SetString(KEY_MONEY, gm.moneyAmount.ToString("R"));
+        PlayerPrefs.SetString(KEY_TOTAL_EARNING, gm.totalEarning.ToString("R"));
 
         long now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-        PlayerPrefs.SetString(KEY_CIKIS_ZAMANI, now.ToString());
+        PlayerPrefs.SetString(KEY_EXIT_TIME, now.ToString());
 
-        Otomasyon[] otomasyonlar = FindObjectsByType<Otomasyon>(FindObjectsSortMode.None);
-        foreach (Otomasyon oto in otomasyonlar)
+        Automation[] automations = FindObjectsByType<Automation>(FindObjectsSortMode.None);
+        foreach (Automation auto in automations)
         {
-            PlayerPrefs.SetInt(KEY_ADET_PREFIX + oto.otomasyonIndex, oto.adet);
-            PlayerPrefs.SetInt(KEY_PASIF_PREFIX + oto.otomasyonIndex, oto.pasif ? 1 : 0);
+            PlayerPrefs.SetInt(KEY_NUMBER_PREFIX + auto.automationIndex, auto.number);
+            PlayerPrefs.SetInt(KEY_PASSIVE_PREFIX + auto.automationIndex, auto.passive ? 1 : 0);
         }
 
         PlayerPrefs.Save();
-        Debug.Log("[SaveManager] Kaydedildi.");
+        Debug.Log("[SaveManager] Saved.");
     }
 
-    public void Yukle(GameManager gm)
+    public void Load(GameManager gm)
     {
-        if (PlayerPrefs.HasKey(KEY_PARA))
+        if (PlayerPrefs.HasKey(KEY_MONEY))
         {
-            double kaydedilenPara;
-            if (double.TryParse(PlayerPrefs.GetString(KEY_PARA), out kaydedilenPara))
-                gm.paraMiktari = kaydedilenPara;
+            double savedMoney;
+            if (double.TryParse(PlayerPrefs.GetString(KEY_MONEY), out savedMoney))
+                gm.moneyAmount = savedMoney;
             // parse başarısız olursa dokunma, GameManager'daki 10 kalsın
         }
         // KEY_PARA yoksa hiç dokunma, 10 kalsın
 
-        if (PlayerPrefs.HasKey(KEY_TOPLAM_KAZANC))
+        if (PlayerPrefs.HasKey(KEY_TOTAL_EARNING))
         {
-            double kaydedilenKazanc;
-            if (double.TryParse(PlayerPrefs.GetString(KEY_TOPLAM_KAZANC), out kaydedilenKazanc))
-                gm.toplamKazanc = kaydedilenKazanc;
+            double savedEarning;
+            if (double.TryParse(PlayerPrefs.GetString(KEY_TOTAL_EARNING), out savedEarning))
+                gm.totalEarning = savedEarning;
         }
 
-        Otomasyon[] otomasyonlar = FindObjectsByType<Otomasyon>(FindObjectsSortMode.None);
-        foreach (Otomasyon oto in otomasyonlar)
+        Automation[] automations = FindObjectsByType<Automation>(FindObjectsSortMode.None);
+        foreach (Automation auto in automations)
         {
-            int kaydedilmisAdet = PlayerPrefs.GetInt(KEY_ADET_PREFIX + oto.otomasyonIndex, 0);
-            bool kaydedilmisPasif = PlayerPrefs.GetInt(KEY_PASIF_PREFIX + oto.otomasyonIndex, 0) == 1;
+            int savedNumber = PlayerPrefs.GetInt(KEY_NUMBER_PREFIX + auto.automationIndex, 0);
+            bool savedPassive = PlayerPrefs.GetInt(KEY_PASSIVE_PREFIX + auto.automationIndex, 0) == 1;
 
-            oto.AdetYukle(kaydedilmisAdet);
-            if (kaydedilmisPasif) oto.PasifAktiflestir();
+            auto.LoadNumber(savedNumber);
+            if (savedPassive) auto.ActivatePassive();
         }
 
-        Debug.Log($"[SaveManager] Yüklendi. Para: {gm.paraMiktari:F0}");
+        Debug.Log($"[SaveManager] Loaded. Money: {gm.moneyAmount:F0}");
     }
 
-    public double OfflineKazancHesapla(GameManager gm)
+    public double CalculateOfflineEarning(GameManager gm)
     {
-        if (!PlayerPrefs.HasKey(KEY_CIKIS_ZAMANI)) return 0;
-        if (!long.TryParse(PlayerPrefs.GetString(KEY_CIKIS_ZAMANI), out long cikisZamani)) return 0;
+        if (!PlayerPrefs.HasKey(KEY_EXIT_TIME)) return 0;
+        if (!long.TryParse(PlayerPrefs.GetString(KEY_EXIT_TIME), out long exitTime)) return 0;
 
-        long simdi = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-        long gecenSaniye = Math.Min(simdi - cikisZamani, 28800); // max 8 saat
-        if (gecenSaniye <= 0) return 0;
+        long now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        long passedSecond = Math.Min(now - exitTime, 28800); // max 8 saat
+        if (passedSecond <= 0) return 0;
 
         // Sadece pasif otomasyonlardan gelen kazancı hesapla
-        double toplamOffline = 0;
-        Otomasyon[] otomasyonlar = FindObjectsByType<Otomasyon>(FindObjectsSortMode.None);
-        foreach (Otomasyon oto in otomasyonlar)
+        double totalOffline = 0;
+        Automation[] automations = FindObjectsByType<Automation>(FindObjectsSortMode.None);
+        foreach (Automation auto in automations)
         {
-            if (!oto.pasif || oto.adet <= 0) continue;
+            if (!auto.passive || auto.number <= 0) continue;
 
-            double kazancPerUretim = oto.bazKazanc * oto.adet;
-            float sure = Mathf.Max(oto.bazUretimSuresi * Mathf.Pow(0.95f, oto.adet), 0.1f);
-            double uretimSayisi = gecenSaniye / sure;
+            double earningPerProduction = auto.baseEarning * auto.number;
+            float time = Mathf.Max(auto.baseProductionTime * Mathf.Pow(0.95f, auto.number), 0.1f);
+            double productionNumber = passedSecond / time;
 
-            toplamOffline += kazancPerUretim * uretimSayisi * 0.5; // %50 verimlilik
+            totalOffline += earningPerProduction * productionNumber * 0.5; // %50 verimlilik
         }
 
-        gm.paraMiktari += toplamOffline;
-        gm.toplamKazanc += toplamOffline;
+        gm.moneyAmount += totalOffline;
+        gm.totalEarning += totalOffline;
 
-        Debug.Log($"[SaveManager] Offline kazanç: {toplamOffline:F0} ({gecenSaniye}s)");
-        return toplamOffline;
+        Debug.Log($"[SaveManager] Offline earning: {totalOffline:F0} ({passedSecond}s)");
+        return totalOffline;
     }
 
-    public void KaydiSifirla()
+    public void ResetSave()
     {
         PlayerPrefs.DeleteAll();
-        Debug.Log("[SaveManager] Kayıt silindi.");
+        Debug.Log("[SaveManager] Save deleted.");
     }
 }
