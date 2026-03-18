@@ -3222,7 +3222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e83529177a434d469c68796706008f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  moneyText: {fileID: 0}
+  moneyText: {fileID: 1288399556}
   offlinePanel: {fileID: 0}
   offlineMessageText: {fileID: 0}
 --- !u!114 &1511071098
